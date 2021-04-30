@@ -5,10 +5,16 @@ export const HeaderComponent = styled.header`
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  padding: 0 80px;
+  padding: 0 5vw;
   box-shadow: 0px -10px 35px 5px rgba(0, 0, 0, 0.4);
   background-color: ${({theme}) => theme.elements};
   transition: all .5s linear;
+
+  @media (max-width: 360px) {
+    p {
+      display: none;
+    }
+  }
 `;
 
 export const Link = styled.a`

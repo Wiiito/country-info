@@ -16,7 +16,7 @@ export default function Header({ togleTheme }) {
         onClick={togleTheme}
         style={{ color: theme === 'light' ? 'hsl(200, 15%, 8%)' : 'hsl(0, 0%, 100%)', transition: 'all .5s linear' }}
       >
-        {theme === 'light' ? 'dark theme' : 'light theme'}
+        <p>{theme === 'light' ? 'dark theme' : 'light theme'}</p>
       </Button>
     </HeaderComponent>
   );
