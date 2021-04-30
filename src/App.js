@@ -6,14 +6,15 @@ import React, { useState } from 'react'
 import Home from './components/Home'
 
 const App = () => {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  localStorage.setItem('theme', theme)
   const themeTogler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   }
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Layout togleTheme={themeTogler} theme={theme}>
+      <Layout togleTheme={themeTogler}>
         <Home />
       </Layout>
     </ThemeProvider>
