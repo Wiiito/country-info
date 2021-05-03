@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: block;
     position: relative;
     transform: translateY(0);
-    top: 0;
+    top: 5vh;
 
   }
 `
@@ -36,11 +36,16 @@ export const Text = styled.div`
 
 export const InfoContainer = styled.div`
   display: flex;
+
+  @media (max-width: 540px) {
+    display: block;
+  }
 `
 
 export const Info = styled.div`
   display: block;
   width: 50%;
+  margin-top: 24px;
   p {
     font-weight: 700;
 
