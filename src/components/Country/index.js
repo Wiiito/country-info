@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Container, Text } from "./styles";
+import { Link } from 'react-router-dom'
 
 export default class Country extends Component {
   render() {
     return (
       <Container>
-        <a href={`/id`}>
+        <Link to={`/details/${this.props.code}`}>
           <img src={this.props.flag} alt={this.props.name} />
           <Text>
             <h3>{this.props.name}</h3>
@@ -19,7 +20,7 @@ export default class Country extends Component {
               Capital:<span>{this.props.capital}</span>
             </h4>
           </Text>
-        </a>
+        </Link>
       </Container>
     );
   }

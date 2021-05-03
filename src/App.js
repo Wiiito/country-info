@@ -1,9 +1,19 @@
+//Components
+
+import { lightTheme, darkTheme } from './components/Theme'
+import Home from './components/Home'
 import Layout from './components/Layout'
 import GlobalStyle from './components/Theme/globals'
-import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from './components/Theme'
+import Detail from './components/Detail'
+
+//React
+
 import React, { useState } from 'react'
-import Home from './components/Home'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+//Theme
+
+import { ThemeProvider } from 'styled-components'
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
@@ -15,7 +25,14 @@ const App = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
       <Layout togleTheme={themeTogler}>
-        <Home />
+        <BrowserRouter>
+          <Switch>
+            <Route path='/' exact>
+              <Home />
+            </Route>
+            <Route path="/details/:id" component={Detail}/>
+          </Switch>
+        </BrowserRouter>
       </Layout>
     </ThemeProvider>
   )

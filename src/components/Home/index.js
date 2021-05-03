@@ -25,7 +25,7 @@ export default class Home extends Component {
             <Input name='country' placeholder='Search'/>
           </Search>
           <Select name="region">
-            <option value="" disabled selected hidden>Filter by region</option>
+            <option value="" selected disabled hidden>Filter by region</option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>
@@ -41,6 +41,7 @@ export default class Home extends Component {
               population={country.population}
               region={country.region}
               capital={country.capital}
+              code={country.callingCodes}
               key={i}
             />
           })}

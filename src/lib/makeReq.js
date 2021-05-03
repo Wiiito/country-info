@@ -1,11 +1,14 @@
 import axios from 'axios'
 
 export default async function makeReq(id) {
+  var response
+  var data
   if (id) {
-    console.log('id legal man')
+    response = await axios.get(`https://restcountries.eu/rest/v2/callingcode/${id}`)
+    data = response.data
   } else {
-    var response = await axios.get('https://restcountries.eu/rest/v2/all')
-    var data = response.data
-    return data
+    response = await axios.get('https://restcountries.eu/rest/v2/all')
+    data = response.data
   }
+  return data
 }
